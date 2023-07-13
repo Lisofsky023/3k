@@ -1,6 +1,8 @@
 @import "_normalize";
 @import "_colors";
 @import "_popup";
+@import "_fonts";
+
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +28,7 @@ body {
 
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'PPPangramSans-CompactRegular', sans-serif;
 }
 
 .wrapper {
@@ -84,7 +86,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px;
+    padding: 10px;
   }
   
   &__menu {
@@ -104,7 +106,7 @@ a {
     &--link {
       color: $white;
       font-weight: 400;
-      font-size: 22px;
+      font-size: 18px;
       line-height: 24px;
       transition: all 0.5s ease;
       position: relative;
@@ -189,8 +191,8 @@ a {
     padding-bottom: 90px;
     color: $white;
     position: relative;
-    opacity: 0;
-    animation: fade-in 1.5s ease forwards;
+    // opacity: 0;
+    // animation: fade-in 1.5s ease forwards;
     text-align: right;
   }
 
@@ -205,11 +207,46 @@ a {
     height: auto;
     display: block;
     position: absolute; 
-    left: -100%; 
-    animation: slide-in 1s ease forwards;
     padding-bottom: 46px;
-    border-bottom: 5px solid $logo;
     margin-bottom: 40px;
+    opacity: 0;
+    animation: fade-in 1.5s ease forwards;
+  }
+  
+  &__stripe {
+    animation: right-sl 1s ease forwards;
+    border: 2px solid #7ee4a6;
+    width: 610px;
+    display: block;
+    position: absolute;
+    top: 504px;
+    left: 14px;
+  }
+
+  &__stripe {
+    -webkit-animation: right-sl 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: right-sl 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+  @-webkit-keyframes right-sl {
+    0% {
+      -webkit-transform: translateX(-500px);
+              transform: translateX(-500px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+  @keyframes right-sl {
+    0% {
+      -webkit-transform: translateX(-500px);
+              transform: translateX(-500px);
+    }
+    100% {
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+    }
   }
 
   &__wrapper {
@@ -221,11 +258,13 @@ a {
   }
 
   &__subtitle {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 30px;
-    letter-spacing: 0.5rem;
+    letter-spacing: 3px;
     margin-bottom: 90px;
     text-align: left;
+    font-family: 'PPPangramSans-Semibold', sans-serif;
+
   }
 
   &__desc {
@@ -237,11 +276,12 @@ a {
   &__text,
   &__mail,
   &__phone {
+    font-family: 'Mont-ExtraLightDEMO', sans-serif;
     display: flex;
     align-items: center;
     width: 278px;
     color: $white;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 300;
     line-height: 24px;
     margin-bottom: 15px;
@@ -254,7 +294,11 @@ a {
   }
 
   &__mail {
-    font-size: 26px;
+    font-size: 23px;
+  }
+
+  &__phone {
+    font-size: 29px;
   }
 
   &__link-icon {
@@ -275,7 +319,47 @@ a {
 
 }
 /******************* END: MAIN *******************/
+.back {
+  &__btn {
+    width: 64px;
+    height: 64px;
+    background: #7ee4a6;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear;
+    &-img {
+      width: 36px;
+      height: auto;
+    }
+  }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+    }
+    50% {
+      opacity: 0.5;
+      visibility: visible;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.back__btn.visible {
+  animation: fadeIn 1s ease-in-out forwards;
+}
 /******************* BEGIN: ABOUT *******************/
 @keyframes fade {
   from {
@@ -288,7 +372,7 @@ a {
 
 .about {
   background: linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(../img/about-bg.jpg) no-repeat center/cover;
-  height: 100vh;
+  height: 100%;
 
   &__container {
     padding: 100px 15px 280px;
@@ -299,15 +383,20 @@ a {
     color: $white;
     font-size: 50px;
     line-height: 52px;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 65px;
+    font-family: 'PPPangramSans-Semibold', sans-serif;
+    letter-spacing: 1px;
   }
 
   &__text {
     opacity: 0;
     color: $white;
     font-size: 20px;
-    margin-bottom: 145px;
+    margin-bottom: 30px;
+    font-family: 'PPPangramSans-CompactRegular', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
   }
 
   &__list {
@@ -327,7 +416,6 @@ a {
     justify-content: flex-start;
     color: $white;
     padding: 16px 0px 0px 0px;
-    // background: $logo;
   }
 
   &__img {
@@ -338,6 +426,8 @@ a {
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 58px;
+    font-family: 'PPPangramSans-Semibold', sans-serif;
+    letter-spacing: 1px;
   }
 
   &__desc {
@@ -345,6 +435,7 @@ a {
     font-size: 18px;
     line-height: 26px;
     padding: 20px;
+    font-family: 'PPPangramSans-CompactRegular', sans-serif;
   }
   
 }
@@ -353,8 +444,8 @@ a {
 /******************* BEGIN: SOLUTIONS *******************/
 .solutions {
   background-color: $black;
-  font-family: 'Roboto', sans-serif;
-  height: 100vh;
+  font-family: 'PPPangramSans-Semibold', sans-serif;
+  // height: 100vh;
   
   &__container {
     height: 100%;
@@ -372,9 +463,10 @@ a {
 
   &__title {
     font-size: 56px;
-    font-weight: 500;
+    font-weight: 700;
     margin: 82px calc(((100% - 1140px) / 2) )0 calc(((100% - 1140px) / 2) + 543px);
     line-height: 62px;
+    opacity: 0;
   }
 
   &__subtitle {
@@ -382,6 +474,8 @@ a {
     font-weight: 300;
     letter-spacing: 1px;
     font-size: 36px;
+    opacity: 0;
+    font-family: 'PPPangramSans-CompactRegular', sans-serif;
   }
 
   &__btn {
@@ -398,6 +492,7 @@ a {
     justify-content: center;
     height: 50px;
     transition: all 0.5s ease;
+    opacity: 0;
     
     &:hover {
       background-color: #808080;
@@ -419,21 +514,39 @@ a {
     width: 339px;
     height: 339px;
     text-align: center;
-    opacity: 0;
-    transform: scale(0.5);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   }
 
   .ok {
-    opacity: 1;
-    transform: scale(1);
+    animation-duration: 1s;
+    animation-name: sl;
+  }
+
+  @keyframes sl {
+    0% {
+      transform: scale(1)
+    }
+    50% { 
+      transform: scale(1.05)
+    }
+  
+    100% {
+      transform: scale(1)
+    }
+  
   }
 
   &__img {
-    height: 197px;
+    height: 188px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__img,
+  &__text,
+  &__icon {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
   }
 
   #home {
@@ -453,6 +566,8 @@ a {
   }
 
   &__text {
+    font-family: 'PPPangramSans-CompactRegular', sans-serif;
+    letter-spacing: 0.5px;
     color: $black;
     font-size: 18px;
     line-height: 30px;
@@ -463,12 +578,25 @@ a {
     justify-content: center;
   }
 }
+
+// .fade-in {
+//   opacity: 1;
+// }
+
+.show {
+  .solutions__img,
+  .solutions__text,
+  .solutions__icon {
+    transition-delay: 1s;
+    opacity: 1;
+  }
+}
 /******************* END: SOLUTIONS *******************/
 
 /******************* BEGIN: PARTNERS *******************/
 .partners {
   background: linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(../img/partners-bg.jpg) no-repeat center/cover;
-  height: 100vh;
+  // height: 100vh;
   &__container {
     padding: 110px 15px 80px;
     margin: 0 auto;
@@ -485,9 +613,10 @@ a {
     max-width: 370px;
 
     &__title {
-      font-size: 68px;
+      font-size: 70px;
       font-weight: 400;
       margin-bottom: 20px;
+      font-family: 'PPPangramSans-CompactRegular', sans-serif;
     }
 
     &__text {
@@ -495,15 +624,17 @@ a {
       margin-bottom: 20px;
       font-weight: 300;
       line-height: 30px;
+      font-family: 'PPPangramSans-CompactRegular', sans-serif;
     }
   }
 
   .projects {
     width: 640px;
     &__title {
-      font-size: 68px;
+      font-size: 70px;
       font-weight: 400;
       margin-bottom: 20px;
+      font-family: 'PPPangramSans-CompactRegular', sans-serif;
     }
     
     &__wrapper {
@@ -534,6 +665,17 @@ a {
 
 /******************* BEGIN: SERVICES *******************/
 .services {
+
+  .first {
+    height: 100vh;
+  }
+
+  &__back-btn {
+    border: 1px solid black;
+  }
+
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
 
   @keyframes slide-in {
     to {
@@ -670,6 +812,7 @@ a {
   background-color: #333333;
   
   &__container {
+    font-family: 'PPPangramSans-CompactRegular', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -691,6 +834,7 @@ a {
   }
 
   &__link {
+    font-family: 'PPPangramSans-CompactRegular', sans-serif;
     margin: 15px 0;
     color: $white;
     font-size: 18px;

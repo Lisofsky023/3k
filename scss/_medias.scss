@@ -16,9 +16,24 @@
 
 @media screen and (max-width: 1330px) {
     .main {
+        height: 100%;
         &__img {
-            width: 530px;
-            padding-left: 50px;
+            width: 432px;
+            // margin-left: 50px;
+        }
+
+        &__stripe {
+            top: 390px;
+            left: 14px;
+        }
+
+        &__wrapper {
+            margin-top: 384px;
+        }
+
+        &__container {
+            padding-bottom: 76px;
+
         }
     }
 
@@ -46,6 +61,11 @@
 
         &__wrapper {
             flex-direction: column;
+            padding: 35px 20px 40px;
+        }
+
+        &__container {
+            padding: 40px 15px 80px;
         }
         .we {
             max-width: 650px;
@@ -109,6 +129,10 @@
 
 @media screen and (max-width: 767px) {
 
+    .back__btn {
+        display: none;
+    }
+
     .header__menu--link {
         font-size: 14px;
     }
@@ -123,10 +147,12 @@
             width: 250px;
             font-size: 20px;
         }
+        &__stripe {
+            max-width: 300px;
+        }
 
         &__img {
             width: 250px;
-            padding-left: 35px;
         }
 
         &__desc {
@@ -212,6 +238,7 @@
             &__text {
                 font-size: 14px;
                 margin-bottom: 0px;
+                text-align: left;
             }
         }
 
@@ -269,7 +296,7 @@
         }
 
         &__number {
-            margin-bottom: 310px;
+            margin-bottom: 366px;
         }
     }
 
